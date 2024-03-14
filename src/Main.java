@@ -11,7 +11,7 @@ public class Main {
         System.out.println("task2");
         List<Integer> nums2 = new ArrayList<>(List.of(1, 1, 2, 3, 4, 4, 5, 5, 6, 7));
         Collections.sort(nums2);
-        prinEvenFromList(nums2);
+        printUniqueEvenFromList(nums2);
 
         System.out.println("task3");
         Set<String> set = new HashSet<>();
@@ -42,9 +42,11 @@ public class Main {
 
     }
 
-    private static void prinEvenFromList(List<Integer> nums) {
+    private static void printUniqueEvenFromList(List<Integer> nums) {
+        Set<Integer> integers = new HashSet<>();
         for (int i = 0; i < nums.size(); i++) {
-            if (nums.get(i) % 2 == 0) {
+            if (nums.get(i) % 2 == 0 && !integers.contains(nums.get(i))) {
+                integers.add(nums.get(i));
                 System.out.println(nums.get(i));
             }
         }
